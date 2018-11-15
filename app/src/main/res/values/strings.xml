@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Kade3</string>
+    <string name="goals">Goals</string>
+    <string name="shots">Shots</string>
+    <string name="lineups">Lineups</string>
+    <string name="substitutes">Substitutes</string>
+    <string name="away_badge">away badge</string>
+    <string name="home_badge">home badge</string>
+    <string name="versus">\u0020vs\u0020</string>
+    <string name="favorites">Favorites</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+</resources>
