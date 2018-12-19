@@ -3,7 +3,6 @@ package com.example.fif.kade3.View
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,7 +25,7 @@ class FragmentLastMatch : Fragment(), MainView {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.activity_fragmen_last_match, container, false)
         adapterRv = MainAdapter(matchs, ctx.applicationContext)
-        Log.i("oncreate", matchs.toString())
+//        Log.i("oncreate", matchs.toString())
         view.rvLastMatchId.layoutManager = LinearLayoutManager(ctx.applicationContext)
         view.rvLastMatchId.adapter = adapterRv
         pb = view.pb_last_match_id
@@ -49,7 +48,7 @@ class FragmentLastMatch : Fragment(), MainView {
     override fun showMatchList(data: List<Match>) {
         matchs.clear()
         matchs.addAll(data)
-        Log.i("showmatchlist", matchs.toString())
+//        Log.i("showmatchlist", matchs.toString())
         adapterRv.notifyDataSetChanged()
     }
 

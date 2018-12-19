@@ -39,12 +39,13 @@ class FavoriteAdapter(private val favorite: List<Favorite>, private val ctx: Con
         private val scoreFavorite: TextView = itemView.scoreFavoriteId
 
         fun bindItem(favorite: Favorite, ctx: Context) {
-            Log.i("isifavbind", favorite.toString())
+//            Log.i("isifavbind", favorite.toString())
             dateFavorite.text = favorite.datee
             homeFavorite.text = favorite.homeName
             awayFavorite.text = favorite.awayName
             scoreFavorite.text = favorite.score
             itemView.setOnClickListener {
+                Log.i("terklik","benar")
                 ctx.startActivity<EventActivity>(
                     "eventId" to favorite.eventId,
                     "homeId" to favorite.homeId,

@@ -1,12 +1,17 @@
 package com.example.fif.kade3.View
 
+import android.annotation.SuppressLint
 import android.database.sqlite.SQLiteConstraintException
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.design.widget.CoordinatorLayout
+import android.support.design.widget.Snackbar
 import android.support.v4.content.ContextCompat
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.Toast
 import com.example.fif.kade3.MainView
 import com.example.fif.kade3.Model.*
 import com.example.fif.kade3.Presenter.MainPresenter
@@ -18,6 +23,7 @@ import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_event.*
 import org.jetbrains.anko.db.*
+import org.jetbrains.anko.design.coordinatorLayout
 
 class EventActivity : AppCompatActivity(), MainView {
     private lateinit var presenter: MainPresenter
@@ -36,7 +42,7 @@ class EventActivity : AppCompatActivity(), MainView {
         favoriteState()
         val request = ApiRepository()
         val gson = Gson()
-        Log.i("cekidevent", idEvent)
+//        Log.i("cekidevent", idEvent)
         presenter = MainPresenter(this, request, gson)
         presenter.getTeamBadge(homeId, awayId)
         presenter.getEventDetail(idEvent)
@@ -55,14 +61,14 @@ class EventActivity : AppCompatActivity(), MainView {
     }
 
     override fun showTeamBadge(idHomeTeam: List<Badge>, idAwayTeam: List<Badge>) {
-        Log.i("gambarrumah", idHomeTeam[0].teamBadge)
+//        Log.i("gambarrumah", idHomeTeam[0].teamBadge)
         Picasso.get().load(idHomeTeam[0].teamBadge).into(homeTeamBadgeId)
         Picasso.get().load(idAwayTeam[0].teamBadge).into(awayTeamBadgeId)
     }
 
     override fun showEventDetail(data: List<Event>) {
         event = data[0]
-        Log.i("isieventnih", event.toString())
+//        Log.i("isieventnih", event.toString())
         dateEventId.text = data[0].dateEvent
         if (data[0].homeScore != null) {
             scoreEventId.text = data[0].homeScore + getString(R.string.versus) + data[0].awayScore
@@ -109,12 +115,13 @@ class EventActivity : AppCompatActivity(), MainView {
         }
     }
 
+    @SuppressLint("ResourceType")
     private fun addToFavorite() {
         if (event?.homeScore == null) {
             event?.homeScore = ""
             event?.awayScore = ""
         }
-        Log.i("iniisimatch", event.toString())
+//        Log.i("iniisimatch", event.toString())
         try {
             database.use {
                 insert(
@@ -128,6 +135,7 @@ class EventActivity : AppCompatActivity(), MainView {
                     Favorite.AWAY_ID to event?.idAwayTeam
                 )
             }
+            Snackbar.make(main_layout,"Pertandingan telah ditambahkan",Snackbar.LENGTH_SHORT).show()
 //            database.use {
 //                dropTable(Favorite.TABLE_FAVORITE)
 //            }
@@ -141,6 +149,7 @@ class EventActivity : AppCompatActivity(), MainView {
             database.use {
                 delete(Favorite.TABLE_FAVORITE, "(EVENT_ID = {id})", "id" to idEvent)
             }
+            Snackbar.make(main_layout,"Pertandingan telah dihapuskan",Snackbar.LENGTH_SHORT).show()
         } catch (e: SQLiteConstraintException) {
 
         }
