@@ -28,5 +28,11 @@ data class Match(
     var idHomeTeam: String? = null,
 
     @SerializedName("idAwayTeam")
-    var idAwayTeam: String? = null
+    var idAwayTeam: String? = null,
+
+    @SerializedName("strTime")
+    var time: String? = null,
+
+    @SerializedName("strSport")
+    var sport: String? = null
 ) : Parcelable

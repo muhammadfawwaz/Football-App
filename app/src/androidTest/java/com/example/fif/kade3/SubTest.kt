@@ -25,48 +25,38 @@ class SubTest {
     var activityRule = ActivityTestRule(MainActivity::class.java)
 
     @Test
-    fun testRecyclerViewBehaviour() {
-        onView(withId(viewPagerId)).check(matches(isDisplayed()))
-        onView(withId(viewPagerId)).perform(swipeLeft())
-
-        Thread.sleep(3000)
-        onView(withId(rvNextMatchId)).check(matches(isDisplayed()))
-        onView(withId(rvNextMatchId)).perform(
-            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click())
-        )
-    }
-
-    @Test
     fun testAppBehaviour() {
         Thread.sleep(3000)
-        onView(withId(viewPagerId)).check(matches(isDisplayed()))
-
-        onView(withId(rvLastMatchId)).check(matches(isDisplayed()))
-        onView(withId(rvLastMatchId)).perform(
-            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click())
-        )
+        onView(withId(bottom_navigation)).check(matches(isDisplayed()))
+        onView(withId(teams_menu)).check(matches(isDisplayed()))
+        onView(withId(teams_menu)).perform(click())
 
         Thread.sleep(3000)
-        onView(withId(add_to_favorite))
+        onView(withId(rvListTeam)).check(matches(isDisplayed()))
+        onView(withId(rvListTeam)).perform(
+            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(3, click())
+        )
+        Thread.sleep(3000)
+        onView(withId(favorites_team))
             .check(matches(isDisplayed()))
-        onView(withId(add_to_favorite)).perform(click())
-        onView(withText("Pertandingan telah ditambahkan")).check(matches(isDisplayed()))
+        onView(withId(favorites_team)).perform(click())
+        onView(withText("Tim telah ditambahkan")).check(matches(isDisplayed()))
 
         pressBack()
 
-        onView(withId(viewPagerId)).perform(swipeLeft()).perform(swipeLeft())
-
+        onView(withId(favorites_menu)).check(matches(isDisplayed()))
+        onView(withId(favorites_menu)).perform(click())
+        onView(withId(main_container)).perform(swipeLeft())
         Thread.sleep(3000)
-        onView(withId(rvFavorite)).check(matches(isDisplayed()))
-        onView(withId(rvFavorite)).perform(
+        onView(withId(rvListTeam)).check(matches(isDisplayed()))
+        onView(withId(rvListTeam)).perform(
             RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click())
         )
 
         Thread.sleep(3000)
-        onView(withId(add_to_favorite))
-            .check(matches(isDisplayed()))
-        onView(withId(add_to_favorite)).perform(click())
-        onView(withText("Pertandingan telah dihapuskan")).check(matches(isDisplayed()))
+        onView(withId(favorites_team)).check(matches(isDisplayed()))
+        onView(withId(favorites_team)).perform(click())
+        onView(withText("Tim telah dihapuskan")).check(matches(isDisplayed()))
 
     }
 }

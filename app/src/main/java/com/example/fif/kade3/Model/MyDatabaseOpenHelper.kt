@@ -19,20 +19,29 @@ class MyDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "Favorit
 
     override fun onCreate(db: SQLiteDatabase) {
         db.createTable(
-            Favorite.TABLE_FAVORITE, true,
-            Favorite.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
-            Favorite.EVENT_ID to TEXT + UNIQUE,
-            Favorite.HOME_TEAM_NAME to TEXT,
-            Favorite.AWAY_TEAM_NAME to TEXT,
-            Favorite.EVENT_DATE to TEXT,
-            Favorite.SCORE to TEXT,
-            Favorite.HOME_ID to TEXT,
-            Favorite.AWAY_ID to TEXT
+            FavoriteMatch.TABLE_FAVORITE, true,
+            FavoriteMatch.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
+            FavoriteMatch.EVENT_ID to TEXT + UNIQUE,
+            FavoriteMatch.HOME_TEAM_NAME to TEXT,
+            FavoriteMatch.AWAY_TEAM_NAME to TEXT,
+            FavoriteMatch.EVENT_DATE to TEXT,
+            FavoriteMatch.SCORE to TEXT,
+            FavoriteMatch.HOME_ID to TEXT,
+            FavoriteMatch.AWAY_ID to TEXT,
+            FavoriteMatch.TIME to TEXT
+        )
+
+        db.createTable(
+            FavoriteTeam.TABLE_FAVORITE, true,
+            FavoriteTeam.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
+            FavoriteTeam.TEAM_ID to TEXT + UNIQUE,
+            FavoriteTeam.TEAM_NAME to TEXT,
+            FavoriteTeam.TEAM_BADGE to TEXT
         )
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        db.dropTable(Favorite.TABLE_FAVORITE, true)
+        db.dropTable(FavoriteMatch.TABLE_FAVORITE, true)
     }
 
 }

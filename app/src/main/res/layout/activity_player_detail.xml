@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:padding="16dp">
+
+        <TextView
+                android:id="@+id/playerName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="20dp"/>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".View.PlayerDetailActivity"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+        <ImageView
+                android:id="@+id/playerHeader"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/weight"
+                        android:gravity="center"/>
+
+                <TextView
+                        android:id="@+id/playerWeight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"/>
+
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/height"
+                        android:gravity="center"/>
+
+                <TextView
+                        android:id="@+id/playerHeight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/playerDetailPos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="8dp"/>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#000000"/>
+
+        <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="8dp">
+
+            <TextView
+                    android:id="@+id/playerDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:justificationMode="inter_word"/>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</LinearLayout>

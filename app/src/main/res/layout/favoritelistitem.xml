@@ -1,48 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.v7.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:orientation="vertical">
 
-    <TextView
-            android:id="@+id/dateFavoriteId"
+    <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="Ini tanggal"
-            android:textAlignment="center"
-            android:paddingBottom="8dp"/>
-
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:orientation="vertical"
+            android:padding="16dp">
 
         <TextView
-                android:id="@+id/homeFavoriteId"
-                android:layout_width="0dp"
+                android:id="@+id/dateFavoriteId"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                tools:text="Manchester United"
-                android:textAlignment="center"/>
+                tools:text="Sun, 23 Sep 2018"
+                android:gravity="center_horizontal"
+                android:paddingBottom="8dp"/>
 
         <TextView
-                android:id="@+id/scoreFavoriteId"
-                android:layout_width="0dp"
+                android:id="@+id/timeFavoriteId"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/versus"
-                android:textAlignment="center"/>
+                android:gravity="center_horizontal"
+                android:paddingBottom="8dp"
+                tools:text="20:00"/>
 
-        <TextView
-                android:id="@+id/AwayFavoriteId"
-                android:layout_width="0dp"
+        <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                tools:text="Manchester United"
-                android:textAlignment="center"/>
+                android:orientation="horizontal">
+
+            <TextView
+                    android:id="@+id/homeFavoriteId"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    tools:text="Manchester United"
+                    android:textAlignment="center"/>
+
+            <TextView
+                    android:id="@+id/scoreFavoriteId"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    tools:text=" vs "
+                    android:textAlignment="center"/>
+
+            <TextView
+                    android:id="@+id/AwayFavoriteId"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    tools:text="Manchester City"
+                    android:textDirection="rtl"
+                    android:textAlignment="center"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
-</LinearLayout>
+</android.support.v7.widget.CardView>

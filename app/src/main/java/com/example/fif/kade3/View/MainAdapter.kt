@@ -9,6 +9,9 @@ import com.example.fif.kade3.Model.Match
 import com.example.fif.kade3.R
 import kotlinx.android.synthetic.main.listitem.view.*
 import org.jetbrains.anko.startActivity
+import java.text.SimpleDateFormat
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 class MainAdapter(private val matchs: List<Match>, private val context: Context) :
     RecyclerView.Adapter<MainAdapter.TeamViewHolder>() {
@@ -35,10 +38,17 @@ class MainAdapter(private val matchs: List<Match>, private val context: Context)
         private val team2 = itemView.team2MatchId
         private val dateMatch = itemView.dateMatchId
         private val scoreMatch = itemView.scoreMatchId
+        private val timeMatch = itemView.timeMatchId
+
         fun bindItem(match: Match, context: Context) {
             team1.text = match.homeTeam
             team2.text = match.awayTeam
+
             dateMatch.text = match.dateEvent
+            if(match.time == null) {
+                match.time = ""
+            }
+            timeMatch.text = getTime(match.time!!)
             if (match.homeScore != null) {
                 scoreMatch.text = match.homeScore + context.getString(R.string.versus) + match.awayScore
             } else {
@@ -51,6 +61,34 @@ class MainAdapter(private val matchs: List<Match>, private val context: Context)
                     "awayId" to match.idAwayTeam
                 )
             }
+        }
+
+        fun getTime(time: String): String {
+            if(time.isEmpty()) {
+                return ""
+            }
+            var hour = time.split(":")[0].toInt()
+            var minute = time.split(":")[1].toInt()
+
+            if(hour + 7 < 24) {
+                hour += 7
+            }
+            else {
+                hour -= 17
+            }
+
+            var hourr = hour.toString()
+            var minutee = minute.toString()
+
+            if(hourr.length == 1) {
+                hourr = "0" + hourr
+            }
+
+            if(minutee.length == 1) {
+                minutee = "0" + minutee
+            }
+
+            return hourr + ":" + minutee
         }
     }
 

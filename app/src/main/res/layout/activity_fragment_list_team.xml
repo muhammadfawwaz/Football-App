@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/frameListPlayer">
+
+    <LinearLayout
+            android:id="@+id/llListTeam"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/spinnerTeamList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"/>
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvListTeam"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+    <ProgressBar
+            android:id="@+id/pb_list_team_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+
+</FrameLayout>

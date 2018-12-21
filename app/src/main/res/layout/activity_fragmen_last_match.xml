@@ -5,15 +5,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+    <LinearLayout
+            android:id="@+id/llLastMatch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="64dp">
+
+        <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/spinnerLast"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"/>
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvLastMatchId"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
     <ProgressBar
             android:id="@+id/pb_last_match_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"/>
-
-    <android.support.v7.widget.RecyclerView
-            android:id="@+id/rvLastMatchId"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
 
 </FrameLayout>

@@ -1,27 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-            android:id="@+id/prev_match_menu"
-            android:enabled="true"
-            android:title="@string/previous"
-            android:icon="@drawable/prev"
-            app:showAsAction="always"/>
+            android:id="@+id/matches_menu"
+            android:title="@string/matches"
+            android:icon="@drawable/prev"/>
 
     <item
-            android:id="@+id/next_match_menu"
-            android:enabled="true"
+            android:id="@+id/teams_menu"
             android:icon="@drawable/next"
-            android:title="@string/next"
-            app:showAsAction="always"/>
+            android:title="@string/teams"/>
 
     <item
-            android:id="@+id/favorites"
-            android:enabled="true"
+            android:id="@+id/favorites_menu"
             android:icon="@drawable/ic_favorites"
-            android:title="@string/favorites"
-            app:showAsAction="always"/>
-
+            android:title="@string/favorites"/>
 
 </menu>
